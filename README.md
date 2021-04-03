@@ -1,5 +1,5 @@
 # word_reader
-This is a simple Python program that reads words and counts them
+This is a simple Python program that reads words and counts them from a document named "readfrom.txt"
 
 # How to use
 To count words, a readfrom.txt is provided with the download and in order for the program to read and count text, you must use that file or name a new file named "readfrom.txt".
