@@ -1,11 +1,12 @@
+from time import sleep
+
 class count:
     def __init__(self):
         self.lst = []
         with open('readfrom.txt','rt') as Read:
             self.text = Read.read()
             # Options to be implemented later...
-        #with open('results.txt','wt') as Results:
-        #    self.write = Results.write()
+        self.a = open('results.txt','wt')
         #with open('options.txt', 'rt') as Options:
         #    self.optionsw = Options.write()
         self.inn = ""
@@ -22,27 +23,27 @@ class count:
     #               "4. Ignore !")
     def Count(self):
         for i in self.text:
+            i = i.lower()
             if i != " ":                # if i doesn't equal a new sentence
                 if i == "\\n":
                     i = ""
-                    continue
                 elif i == "?":
                     i = ""
-                    continue
                 elif i == ".":
                     i = ""
-                    continue
                 elif i == "!":
                     i = ""
-                    continue
                 elif i == ",":
                     i = ""
-                    continue
                 elif i == "\n":
                     i = ""
-                    continue
                 elif i == "\"":
                     i = ""
+                elif i == "-":
+                    i = ""
+                if i == "":
+                    self.lst.append(self.inn)  # puts inn in list
+                    self.inn = ""  # resets inn
                 elif i != "":
                     self.inn += i           # add the new letter to form the word again
             elif i == " ":                  # if there's a new sentence
@@ -65,7 +66,14 @@ class count:
 
     def Display(self):
         for word,num in self.dictionari.items():
-            p = print(f"Word: {word} --> Said:{num}")
- #           self.write(p)
+            a = str(f"Word: {word} --> Said:{num}\n")
+            print(a,end='')
+            self.a.write(a)
+        print("\n\nResults have been printed to the results.txt file too.\n")
+        sleep(2)
+        print("Thanks for using word_reader!")
+        sleep(1)
+        self.a.close()
+
 c = count()
 c.Count()
