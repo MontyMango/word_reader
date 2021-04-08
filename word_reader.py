@@ -26,22 +26,22 @@ class count:
             i = i.lower()
             if i != " ":                # if i doesn't equal a new sentence
                 if i == "\\n":
-                    i = ""
+                    i = None
                 elif i == "?":
-                    i = ""
+                    i = None
                 elif i == ".":
-                    i = ""
+                    i = None
                 elif i == "!":
-                    i = ""
+                    i = None
                 elif i == ",":
-                    i = ""
+                    i = None
                 elif i == "\n":
-                    i = ""
+                    i = None
                 elif i == "\"":
-                    i = ""
+                    i = None
                 elif i == "-":
-                    i = ""
-                if i == "":
+                    i = None
+                if i == None:
                     self.lst.append(self.inn)  # puts inn in list
                     self.inn = ""  # resets inn
                 elif i != "":

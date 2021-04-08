@@ -1,4 +1,4 @@
-Word:  --> Said:5877
+Word:  --> Said:5855
 Word: 'cause --> Said:2
 Word: 'em --> Said:1
 Word: 'n' --> Said:1
