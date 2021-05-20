@@ -1,12 +1,25 @@
+import os
 from time import sleep
 
 class count:
     def __init__(self):
         self.lst = []
-        with open('readfrom.txt','rt') as Read:
-            self.text = Read.read()
-            # Options to be implemented later...
-        self.a = open('results.txt','wt')
+        print("Read from readfrom.txt file?")
+        a = input("[y or n]: ")
+        if a == 'y':
+            try:
+                with open('readfrom.txt','rt') as Read:
+                    self.text = Read.read()
+                self.a = open('results.txt','wt')
+                self.rite = 1
+            except:
+                self.rite = 0
+                print("\n\n\n\n\nCouldn't find file...\n\nPlease input anything for the program to read it.\n")
+                self.text = input()
+        elif a == 'n':
+            self.rite = 0
+            print("Input anything below to be analysed and read by the program.\n")
+            self.text = input()
         #with open('options.txt', 'rt') as Options:
         #    self.optionsw = Options.write()
         self.inn = ""
@@ -68,12 +81,14 @@ class count:
         for word,num in self.dictionari.items():
             a = str(f"Word: {word} --> Said:{num}\n")
             print(a,end='')
-            self.a.write(a)
+            if self.rite == 1:
+                self.a.write(a)
         print("\n\nResults have been printed to the results.txt file too.\n")
         sleep(2)
         print("Thanks for using word_reader!")
         sleep(1)
-        self.a.close()
+        if self.rite == 1:
+            self.a.close()
 
 c = count()
 c.Count()
